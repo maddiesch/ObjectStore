@@ -57,6 +57,8 @@ public final class ObjectManager {
         guard errors.count == 0 else {
             throw ObjectManagerLoadError(errors: errors)
         }
+        
+        self.viewContext.automaticallyMergesChangesFromParent = true
     }
 }
 

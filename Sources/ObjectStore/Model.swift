@@ -92,11 +92,12 @@ extension NSEntityDescription {
     public typealias ValidationPredicate = (NSPredicate, String)
     
     @discardableResult
-    public func addAttribute(_ name: String, _ type: NSAttributeType, isOptional: Bool = true, validators: Array<ValidationPredicate> = []) -> NSAttributeDescription {
+    public func addAttribute(_ name: String, _ type: NSAttributeType, isOptional: Bool = true, validators: Array<ValidationPredicate> = [], default defaultValue: Any? = nil) -> NSAttributeDescription {
         let property = NSAttributeDescription()
         property.name = name
         property.attributeType = type
         property.isOptional = isOptional
+        property.defaultValue = defaultValue
         
         var predicates = Array<NSPredicate>()
         var messages = Array<String>()
